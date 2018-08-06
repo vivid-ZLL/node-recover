@@ -128,13 +128,16 @@
 
     4. 关于vue-router和router-view
       * 我们经常可以看到App.vue中有一个<router-view>组件，那么这个组件是如何进行渲染的呢？
-        <router-view>是用来渲染通过路由映射过来的组件，当路径更改时，<router-view>中的内容也会相应更改，比如我们打开http://localhost:8080/home的时候，<router-view>中就会渲染home.vue组件
+        <router-view>是用来渲染通过路由映射过来的组件，当路径更改时，<router-view>中的内容也会相应更改，
+        比如我们打开http://localhost:8080/home的时候，<router-view>中就会渲染home.vue组件
       * home.vue中也同样可以在<template/>中添加<router-view>组件，这样也会在home.vue的<routerr-view>中渲染相应的子组件
 
 ### 父子组件数据传递
     1. props和$emit方式
+      * 子组件在平props中创建一个属性，用来接收父组件传来的值，父组件中注册子组件,同时data中的属性参数可以是props中的参数属性
       * 子组件通过this.$emit()派发事件，父组件利用v-on对事件进行监听，实现参数的传递
         父组件：<v-cartcontrol :food="food" v-on:changeCart="changeCart"></v-cartcontrol>
         子组件：this.$emit('changeCart',event.target)/*向父组件派发事件，同时传递参数event.target,后面的参数的个数不限*/
+     * 父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息
 
     2. vuex this.$store
