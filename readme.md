@@ -7,6 +7,7 @@
   - elemnetUI
   - bootstrap
   - iView
+  - WeUI
 
 * 后端框架
     - egg
